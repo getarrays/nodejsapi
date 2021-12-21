@@ -1,0 +1,10 @@
+#! /bin/sh
+yum update -y
+amazon-linux-extras install docker
+service docker start
+usermod -aG docker ec2-user
+chkconfig docker on
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+http POST :3000/patients first_name="Alexandre" last_name=Petion email=emailp@gmail.com phone=222-555-6458 address="123 Main Road" diagnosis=Cough image_url=https://profileimage.com
